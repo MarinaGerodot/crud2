@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>{% block title %}Переменная часть заголовка по умолчанию{% endblock %} - название постоянной части</title>
+        
+        {% block stylesheets %}
+        	<link rel="stylesheet" href="{{ asset('bundles/framework/css/structure.css') }}" />
+        	<link rel="stylesheet" href="{{ asset('bundles/framework/css/body.css') }}" />
+    		 <link rel="stylesheet" href="{{ asset('bundles/probaproba/css/main.css') }}" />
+		{% endblock %}
+        <link rel ="shortcut icon" href= "{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div id= "wrap">
+        <header id="header">
+            <h1>Название страницы</h1>
+            {% block navigation %}
+            <nav>
+                <ul class="navigation">
+                    <li><a href ="{{ path('page_impressum') }}">Импрессум</a></ li>                    
+                </ul>
+            </nav>
+            {% endblock %}
+        </header>
+
+        <section class= "main">
+            {% block body %}{% endblock %}
+        </section>
+        <aside class="sidebar-right">
+
+            {% block sidebarright %}Правая колонка{% endblock %}
+        </aside>
+
+        <aside class= "sidebar-left">
+            {% block sidebarleft %}Левая колонка{% endblock %}
+        </aside>
+
+        <div id ="footer">
+            {% block footer %}
+            Возможная ссылка на свой копирайт, ссылка на Symfony2 и т.п.
+            {% endblock %}
+        </div>
+        {% block javascripts %}{% endblock %}
+        </div>
+    </body>
+</html>
